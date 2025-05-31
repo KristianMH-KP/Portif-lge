@@ -1,0 +1,53 @@
+.nav-dots {
+  position: fixed;
+  top: 50%;
+  right: 2vw;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3vh;
+  z-index: 1400;
+}
+
+.nav-dot-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-dot-line {
+  height: 4vh;
+  width: 0.15rem;
+  background: rgba(180, 180, 180, 0.2);
+  margin: 0.8vh 0;
+}
+
+.nav-image {
+  width: 3.2vw;
+  height: 3.2vw;
+  opacity: 0.55;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  filter: grayscale(20%) drop-shadow(0 0 0.2vh var(--gothic-red));
+}
+
+.nav-image:hover,
+.nav-image.active {
+  opacity: 1;
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 1vh var(--gothic-red));
+}
+
+@media (max-width: 1024px) {
+  .nav-image {
+    width: 4.5vw;
+    height: 4.5vw;
+  }
+
+  .nav-dots {
+    right: 3vw;
+    gap: 3vh;
+  }
+}

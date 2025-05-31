@@ -1,0 +1,170 @@
+.Projects,
+.prosjekt-seksjon {
+  background: url('src/Bilder/Image-bloodborne-screen-36d.webp') center/cover no-repeat;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.Projects-video,
+.bakgrunns-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.25;
+  filter: brightness(0.7) contrast(1.1) saturate(1.2);
+  pointer-events: none;
+}
+
+.animated-fog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: url('src/Bilder/tumblr_pmd6e6Ol7y1runoqyo5_r1_540.webp') repeat;
+  background-size: cover;
+  animation: fogMove 120s linear infinite;
+  filter: blur(0.3rem);
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.fog-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.7;
+  backdrop-filter: blur(0.2rem);
+  background-blend-mode: screen;
+  background-size: 200% 200%;
+  background:
+    radial-gradient(circle at 40% 30%, rgba(255, 255, 255, 0.06), transparent 70%),
+    radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.05), transparent 60%),
+    radial-gradient(circle at 20% 90%, rgba(255, 255, 255, 0.03), transparent 80%);
+  animation: fogDriftX 60s ease-in-out infinite, fogDriftY 80s ease-in-out infinite;
+}
+
+.prosjekt-tittel {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  background-image: url("src/Bilder/giphy.gif");
+  background-size: 150% auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 1;
+  mix-blend-mode: screen;
+  filter: brightness(1.5) contrast(1.5) saturate(1.4);
+  text-shadow: 0 0 0.4rem rgba(255, 0, 0, 0.3);
+  margin-bottom: 0.1rem;
+  text-align: center;
+}
+
+.prosjekt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  width: 90%;
+  max-width: 1400px;
+  padding: 3rem 0;
+  z-index: 2;
+}
+
+.prosjekt-kort {
+  background: rgba(20, 20, 20, 0.9);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(150, 30, 30, 0.4);
+  box-shadow: 0 0 1rem rgba(110, 11, 20, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(0.1rem);
+  font-family: 'Cinzel', serif;
+  text-align: center;
+}
+
+.prosjekt-kort:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 2rem rgba(200, 30, 30, 0.5);
+}
+
+.prosjekt-kort img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.prosjekt-kort h2 {
+  font-size: 1.4rem;
+  color: #f8d37e;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 0.3rem rgba(255, 255, 150, 0.2);
+}
+
+.prosjekt-kort p {
+  color: #ccc2aa;
+  font-size: 0.95rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.teknologier {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.teknologier span {
+  background: #3a0000;
+  color: #f3f3f3;
+  padding: 0.4rem 0.7rem;
+  border-radius: 1rem;
+  font-size: 0.85rem;
+  font-family: 'IM Fell English SC', serif;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 640px) {
+  .prosjekt-kort img {
+    height: 160px;
+  }
+}
+
+@keyframes fogMove {
+  0% { transform: translate(-50%, -50%); }
+  50% { transform: translate(0%, 0%); }
+  100% { transform: translate(-50%, -50%); }
+}
+
+@keyframes fogDriftX {
+  0% { background-position-x: 0%; }
+  50% { background-position-x: 100%; }
+  100% { background-position-x: 0%; }
+}
+
+@keyframes fogDriftY {
+  0% { background-position-y: 0%; }
+  50% { background-position-y: 100%; }
+  100% { background-position-y: 0%; }
+}

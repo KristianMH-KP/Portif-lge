@@ -1,0 +1,81 @@
+.welcome {
+  background: url('src/Bilder/Testing.jpg') center/cover no-repeat;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.gothic-title {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  text-align: center;
+  margin-bottom: 0.1rem;
+  
+}
+
+.blood-effect {
+  background-image: url("src/Bilder/giphy.gif");
+  background-size: 150% auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 1;
+  mix-blend-mode: screen;
+  filter: brightness(1.5) contrast(1.5) saturate(1.4);
+  text-shadow: 0 0 0.4rem rgba(255, 0, 0, 0.3);
+}
+
+.welcome-content {
+  text-align: center;
+  color: #d4af37;
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  text-shadow: 0 0 0.4rem rgb(0, 0, 0);
+  margin-top: 0.1rem;
+}
+
+.welcome-quote {
+  font-style: italic;
+  color: #caa750;
+  margin-top: 2.1rem;
+  text-shadow: 0 0 0.4rem rgb(0, 0, 0);
+}
+
+
+.animated-fog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: url('src/Bilder/tumblr_pmd6e6Ol7y1runoqyo5_r1_540.webp') repeat;
+  background-size: cover;
+  animation: fogMove 120s linear infinite;
+  filter: blur(0.3rem);
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.fog-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.7;
+  backdrop-filter: blur(0.2rem);
+  background-blend-mode: screen;
+  background-size: 200% 200%;
+  background:
+    radial-gradient(circle at 40% 30%, rgba(255, 255, 255, 0.06), transparent 70%),
+    radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.05), transparent 60%),
+    radial-gradient(circle at 20% 90%, rgba(255, 255, 255, 0.03), transparent 80%);
+  animation: fogDriftX 60s ease-in-out infinite, fogDriftY 80s ease-in-out infinite;
+}

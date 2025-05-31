@@ -1,0 +1,181 @@
+:root {
+  --gothic-gold: #e4c87d;
+  --gothic-red: #990000;
+}
+
+.Insight {
+  background: url('src/Bilder/m2-res_1080p.mp4_1747726370453.gif') center/cover no-repeat;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.Insight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('src/Bilder/m2-res_1080p.mp4_1747726370453.gif') center/cover no-repeat;
+  filter: blur(8px);
+  opacity: 0.9;
+  z-index: -1;
+}
+
+.animated-fog,
+.fog-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.animated-fog {
+  background: url('src/Bilder/tumblr_pmd6e6Ol7y1runoqyo5_r1_540.webp') repeat;
+  background-size: cover;
+  animation: fogMove 120s linear infinite;
+  filter: blur(0.3rem);
+  opacity: 0.25;
+}
+
+.fog-layer {
+  opacity: 0.7;
+  backdrop-filter: blur(0.2rem);
+  background-blend-mode: screen;
+  background-size: 200% 200%;
+  background:
+    radial-gradient(circle at 40% 30%, rgba(255, 255, 255, 0.06), transparent 70%),
+    radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.05), transparent 60%),
+    radial-gradient(circle at 20% 90%, rgba(255, 255, 255, 0.03), transparent 80%);
+  animation: fogDriftX 60s ease-in-out infinite, fogDriftY 80s ease-in-out infinite;
+}
+
+.insight-pedestal {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  padding: 3rem 1rem;
+  max-width: 90vw;
+  color: #f3eacb;
+}
+
+.insight-title {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  background-image: url("src/Bilder/giphy.gif");
+  background-size: 150% auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 1;
+  mix-blend-mode: screen;
+  filter: brightness(1.5) contrast(1.5) saturate(1.4);
+  text-shadow: 0 0 0.4rem rgba(255, 0, 0, 0.3);
+  margin-bottom: 0.1rem;
+}
+
+.insight-sub {
+  font-style: italic;
+  color: #caa750;
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  text-shadow: 0 0 0.4rem rgb(0, 0, 0);
+  margin-top: 2.1rem;
+}
+
+.valg-container {
+  display: flex;
+  justify-content: center;
+  gap: 3vw;
+  margin-bottom: 3rem;
+}
+
+.innsikt-knapp {
+  padding: 0.8rem 1.2rem;
+  background: rgba(80, 0, 0, 0.6);
+  border: 1px solid var(--gothic-red);
+  border-radius: 0.5rem;
+  color: var(--gothic-gold);
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: floatIcon 6s ease-in-out infinite;
+}
+
+.innsikt-knapp:hover,
+.innsikt-knapp.aktiv {
+  transform: scale(1.05);
+  background-color: var(--gothic-red);
+  color: #fff;
+  box-shadow: 0 0 1rem crimson;
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.insight-scrolls {
+  margin-top: 2rem;
+}
+
+.insight-scroll {
+  background: rgba(20, 20, 20, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 0 2rem rgba(90, 0, 0, 0.2);
+  animation: fadeInScroll 1s ease forwards;
+}
+
+.insight-scroll h2 {
+  color: var(--gothic-gold);
+  font-family: 'Cinzel', serif;
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 0 0.3rem rgba(255, 255, 150, 0.2);
+}
+
+.insight-scroll p {
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #e6d8b2;
+}
+
+@keyframes fadeInScroll {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fogMove {
+  0% { transform: translate(-50%, -50%); }
+  50% { transform: translate(0%, 0%); }
+  100% { transform: translate(-50%, -50%); }
+}
+
+@keyframes fogDriftX {
+  0% { background-position-x: 0%; }
+  50% { background-position-x: 100%; }
+  100% { background-position-x: 0%; }
+}
+
+@keyframes fogDriftY {
+  0% { background-position-y: 0%; }
+  50% { background-position-y: 100%; }
+  100% { background-position-y: 0%; }
+}
